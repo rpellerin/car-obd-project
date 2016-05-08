@@ -1,0 +1,2 @@
+fuel rail pressure (both)
+ambient air temperature
