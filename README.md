@@ -10,9 +10,17 @@ They can be installed using `pip`.
 # TODO
 
 - Add the path to the device as a mandatory argument ("/dev/ttyUSB0")
-- Develop a web interface using JavaScript
-- Establish communication between the web interface and the Python program using websockets
 
 # Other ideas
 
 - [How to build a dashcam](http://pidashcam.blogspot.fr/)
+- Add TTS (for example when going above the speed limit, and when shifting gears too late/too early):
+    - [Android](https://github.com/nolanlawson/SimpleTalker)
+    - [Ubuntu](http://askubuntu.com/questions/501910/how-to-text-to-speech-output-using-command-line)
+- Full dashboard with tabs and checkboxes to show/hide different parts like:
+    - Speed
+    - Speed of the engine
+    - Temperature(s)
+    - Trottle pedal position
+    - etc.
+    All the parts must fit in the window, there should be no need to scroll in any direction

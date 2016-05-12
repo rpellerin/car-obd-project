@@ -9,7 +9,7 @@ from threading import Thread
 async def hello(websocket, path):
     print("connected")
 
-    toSend = 50;
+    toSend = 0;
     while True:
         try:
             print("ready to send")
@@ -18,10 +18,10 @@ async def hello(websocket, path):
         except:
             print("breaking")
             break
-        time.sleep(1)
-        toSend = (toSend + 1) % 76
+        time.sleep(0.01)
+        toSend = (toSend + 1) % 130
         if toSend == 0:
-            toSend = 50
+            toSend = 0
 
     #name = await websocket.recv()
     #print("< {}".format(name))
