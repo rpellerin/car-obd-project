@@ -6,10 +6,34 @@
         <link rel="stylesheet" media="all" href="res/css/style.css" />
         <link rel="shortcut icon" href="favicon.ico" />
         <title>DEMO PAGE</title>
+    </head>
+    <body>
+
+    <style>
+        body {
+            overflow: hidden;
+        }
+        img {
+            position: absolute;
+            top: 0;
+            left: 0;
+            height: auto;
+            width: auto;
+            max-height: 100%;
+            max-width: 100%
+        }
+        #pointer {
+            transform: rotate(-11deg);
+        }
+    </style>
+
+    <img src="odometer.jpg" />
+    <img src="pointer.png" id="pointer">
+
         <script>
             var connection = new WebSocket('ws://localhost:8765');
             connection.onopen = function () {
-              connection.send('Ping'); // Send the message 'Ping' to the server
+              //connection.send('Ping'); // Send the message 'Ping' to the server
             };
 
             // Log errors
@@ -20,10 +44,12 @@
             // Log messages from the server
             connection.onmessage = function (e) {
               console.log('Server: ' + e.data);
+              var rot = +e.data;
+              rot *= 1.8;
+              rot -= 11;
+              console.log(rot);
+              document.getElementById("pointer").style.transform = 'rotate('+rot+'deg)';
             };
-            connection.send('test');
         </script>
-    </head>
-    <body>
     </body>
 </html>

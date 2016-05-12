@@ -1,31 +1,35 @@
 import obd
-import time
 import signal
 import sys
+import asyncio
+import websockets
+import time
+from random import randint
+from threading import Thread
 
-connection = obd.Async("/dev/ttyUSB0")
+connection = obd.OBD("/dev/ttyUSB0")
 
-def new_rpm(r):
-    if not r.is_null():
-        print(str(r.value)+" "+str(r.unit)+"\r")
+async def hello(websocket, path):
+    print("connected")
 
-def new_fuel(r):
-    if not r.is_null():
-        print("Fuel: "+str(r.value)+" "+str(r.unit))
+    cmd = obd.commands.SPEED
 
-def new_tmp(r):
-    if not r.is_null():
-        print("Temp: "+str(r.value)+" "+str(r.unit))
+    while True:
+        r = connection.query(cmd)
+        try:
+            print("ready to send")
+            val = str(r.value)
+            print(val)
+            await websocket.send(val)
+            print("sent")
+        except:
+            print("breaking")
+            break
 
-def new_tmp2(r):
-    if not r.is_null():
-        print("Temp2: "+str(r.value)+" "+str(r.unit))
+start_server = websockets.serve(hello, 'localhost', 8765)
 
-#connection.watch(obd.commands.RPM, callback=new_rpm)
-connection.watch(obd.commands.SPEED, callback=new_rpm)
-#connection.watch(obd.commands.INTAKE_TEMP, callback=new_tmp)
-#connection.watch(obd.commands.THROTTLE_POS, callback=new_rpm)
-connection.start()
+asyncio.get_event_loop().run_until_complete(start_server)
+asyncio.get_event_loop().run_forever()
 
 # the callback will now be fired upon receipt of new values
 
