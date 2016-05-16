@@ -24,3 +24,8 @@ They can be installed using `pip`.
     - Trottle pedal position
     - etc.
     All the parts must fit in the window, there should be no need to scroll in any direction
+
+# Further reading
+
+- [http://the-paper-trail.org/blog/distributed-systems-theory-for-the-distributed-systems-engineer/](http://the-paper-trail.org/blog/distributed-systems-theory-for-the-distributed-systems-engineer/)
+- [https://codingsec.net/2016/05/7-steps-master-machine-learning/](https://codingsec.net/2016/05/7-steps-master-machine-learning/)
