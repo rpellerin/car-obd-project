@@ -29,3 +29,4 @@ They can be installed using `pip`.
 
 - [http://the-paper-trail.org/blog/distributed-systems-theory-for-the-distributed-systems-engineer/](http://the-paper-trail.org/blog/distributed-systems-theory-for-the-distributed-systems-engineer/)
 - [https://codingsec.net/2016/05/7-steps-master-machine-learning/](https://codingsec.net/2016/05/7-steps-master-machine-learning/)
+- [https://www.youtube.com/watch?v=0kFip4lKu0w](https://www.youtube.com/watch?v=0kFip4lKu0w)
