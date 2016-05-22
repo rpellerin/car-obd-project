@@ -7,6 +7,10 @@ Requires Python 3.5+ and the following packages:
 
 They can be installed using `pip`.
 
+# SR05 project
+
+- Have a look at Hadoop
+
 # TODO
 
 - Add the path to the device as a mandatory argument ("/dev/ttyUSB0")
